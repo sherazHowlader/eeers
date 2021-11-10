@@ -2,8 +2,7 @@
 
     class Account extends MainController{        
         
-        private $tableOne = 'pr_management';
-        private $tableTwo = 'sales_voucher';
+        private $tableOne = 'pr_management';        
 
         public function __construct() {
             parent::__construct();
@@ -22,9 +21,12 @@
             $this->load->view('admin/sidebar');           
             $this->load->view('admin/content_title');           
             
-            $modelOne   = $this->load->model("accountModel");
-            
-            $rcvData['prList']      = $modelOne->read($this->tableOne, $company_name);             
+            $modelOne = $this->load->model("accountModel");
+
+            $modelTwo   = $this->load->model("storeModel");
+            $rcvData['storeCapital']    = $modelTwo->readAll($this->tableOne, $company_name);
+
+            $rcvData['prList'] = $modelOne->read($this->tableOne, $company_name);             
 
             $this->load->view('finalAccount',$rcvData);
             $this->load->view('admin/footer');

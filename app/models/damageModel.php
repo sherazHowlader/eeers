@@ -34,7 +34,7 @@
         public function readById($table, $company_name, $name){
             $sql = "SELECT *
                     FROM $table                    
-                    WHERE company_name='$company_name' AND pr_name='$name' || id = '$name' AND dm_value <> 0
+                    WHERE company_name='$company_name' AND pr_name='$name' || id = '$name'
                     ";                    
                
             return $this->select($sql);

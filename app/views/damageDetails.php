@@ -25,8 +25,7 @@
             </tr>
         </thead>
         <tbody>
-            <?php
-            $serial = "1";
+            <?php            
             foreach ($prDetails as $key => $value) { ?>
                 <tr>                
                     <td> <?php echo $value['pr_name']; ?> </td>

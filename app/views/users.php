@@ -24,8 +24,12 @@
                     <?php 
                         if ($user['role_id'] == 2) { ?>
                             <td class="text-center">
-                                <a class="btn btn-info" href="<?php echo BASE_URL; ?>/Index/edit/<?php echo $value['name']; ?>"> Edit </a>
-                                <a onclick="return confirm('Are you sure you want to delete this item?');" class="btn btn-danger" href="<?php echo BASE_URL; ?>/Index/delete/<?php echo $value['id']; ?>"> Delete </a>
+                                <a href="<?php echo BASE_URL; ?>/Index/edit/<?php echo $value['name']; ?>"> 
+                                    <i class="btn btn-info fa fa-edit"></i> 
+                                </a>
+                                <a class="delete" href="<?php echo BASE_URL; ?>/Index/delete/<?php echo $value['id']; ?>"> 
+                                    <i class="btn btn-danger fa fa-trash m-1"> </i> 
+                                </a>
                             </td>
                     <?php  } ?>
                 </tr>

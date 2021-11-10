@@ -85,21 +85,41 @@ if ($user['role_id'] == 0) {
                                 <div class="widget-content-left">
                                     <div class="btn-group">
                                         <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="p-0 btn">
-                                            <img width="35" class="rounded-circle" src="https://cdn.iconscout.com/icon/free/png-512/male-avatar-41-1137023.png" alt="">
+                                            <!-- <img width="35" class="rounded-circle" src="https://cdn.iconscout.com/icon/free/png-512/male-avatar-41-1137023.png" alt=""> -->
+
+                                            <?php 
+                                                if (!isset($_SESSION['profileImage'])) { ?>
+                                                        <img width="35" class="rounded-circle" src="<?php echo BASE_URL; ?>/images/profile/<?php echo $_SESSION['userData']['profile_pic']; ?>" alt="profile picture">   
+                                                    <?php                         
+                                                    
+                                                }else{ ?>
+                                                        <img width="35" class="rounded-circle" src="<?php echo BASE_URL; ?>/images/profile/<?php echo $_SESSION['profileImage']; ?>" alt="profile picture">
+                                                    <?php
+                                                }
+                                            ?>
                                         </a>
                                         <div aria-hidden="true" class="dropdown-menu">                                            
                                             <button type="button" class="dropdown-item ">
-                                                <a class="text-decoration-none" href="<?php echo BASE_URL; ?>/Account/setting"> Settings </a>
+                                                <a class="text-decoration-none" href="<?php echo BASE_URL; ?>/Account/setting"> <i class="fas fa-cog"> Settings </i> </a>
                                             </button>
                                             <button type="button" class="dropdown-item ">
-                                                <a class="text-decoration-none" href="<?php echo BASE_URL; ?>/Index/logOut"> Log Out </a>
+                                                <a class="text-decoration-none" href="<?php echo BASE_URL; ?>/Index/logOut"> <i class="fas fa-sign-out-alt"> Log Out </i> </a>
                                             </button>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="widget-content-left  ml-3 header-user-info text-center">
                                     <div class="widget-heading">
-                                        <?php echo $user['name']; ?>
+                                        <?php 
+                                            if (!isset($_SESSION['userName'])) { ?>
+                                                    <?php $user = $_SESSION['userData']; echo $user['name']; ?> 
+                                                <?php                         
+                                                
+                                            }else{ ?>
+                                                <?php echo $_SESSION['userName']; ?>
+                                                <?php
+                                            }
+                                        ?>
                                     </div>
                                     <div class="widget-subheading">
                                         <?php echo $user['role_name']; ?>

@@ -23,10 +23,11 @@
             $this->load->view('admin/content_title');           
             
             $modelOne   = $this->load->model("storeModel");
+            $modelTwo   = $this->load->model("accountModel");
             
-            $rcvData['prList']      = $modelOne->readValue($this->tableOne, $company_name);
-            $rcvData['productList'] = $modelOne->read($this->tableTwo, $company_name);
-            $rcvData['totalPr']     = $modelOne->readAll($this->tableOne, $company_name);
+            $rcvData['prList']          = $modelTwo->read($this->tableOne, $company_name);
+            $rcvData['productList']     = $modelOne->read($this->tableTwo, $company_name);
+            $rcvData['storeCapital']    = $modelOne->readAll($this->tableOne, $company_name);
             
 
             $this->load->view('store', $rcvData);

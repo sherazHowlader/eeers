@@ -13,17 +13,17 @@
             return $this->select($sql);
         }
 
-        public function readValue($table, $company_name){
-            $sql = "SELECT *,sum(st_quantity) as sumStore,sum(st_value) as sumValue  FROM $table 
-                    WHERE company_name='$company_name'  AND st_value <> 0
-                    GROUP by pr_name order by pr_name";           
+        // public function readValue($table, $company_name){
+        //     $sql = "SELECT *,sum(st_quantity) as sumStore,sum(st_value) as sumValue  FROM $table 
+        //             WHERE company_name='$company_name'  AND st_value <> 0
+        //             GROUP by pr_name order by pr_name";           
             
-            return $this->select($sql);
-        }
+        //     return $this->select($sql);
+        // }
 
 
         public function readAll($table, $company_name){
-            $sql = "SELECT SUM(st_value) as totalPrice
+            $sql = "SELECT SUM(st_value) as sumStoreValue,SUM(sl_value) as sumSellValue,SUM(dm_value) as sumDamValue
                     FROM $table                    
                     WHERE company_name='$company_name'";
                     

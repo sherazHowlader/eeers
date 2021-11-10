@@ -50,7 +50,7 @@
     <table class="table table-striped text-center" id="myTable">
         <thead>
             <tr>
-                <th > S/L <span class="sr-only">dsds</span></th>
+                <th> S/L </th>
                 <th> Product </th>
                 <th> Store </th>
                 <th> Value </th>
@@ -62,15 +62,11 @@
                     $serial = "1";
                     foreach ($prList as $key => $value) {                 
                 ?>
-                    <tr>
-                        
-                        <td> 
-                            <p class="sr-only"> <?php echo $serial++ ?> </p>
-                            <img height="30px" width="30px" style="border-radius:50%" src="<?php echo BASE_URL; ?>/images/product/<?php echo $value['pr_name'].".jpg"; ?>" alt="Product">
-                        </td>
+                    <tr>                        
+                        <td> <?php echo $serial++ ?> </td>
                         <td> <?php echo $value['pr_name']; ?> </td>
-                        <td> <?php echo $value['sumStore']; ?> </td>                
-                        <td> <?php echo $value['sumValue']?> </td>                
+                        <td> <?php echo $value['sumStore'] - $value['sumSell'] - $value['sumDam']; ?> </td>               
+                        <td> <?php echo $value['sumStoreValue'] - $value['sumSellValue'] - $value['sumDamValue']; ?> </td>                
                         <td> 
                             <a href="<?php echo BASE_URL; ?>/Store/details/<?php echo $value['pr_name']; ?>"> 
                                 <i class="btn btn-info fa fa-info-circle"> </i>
@@ -81,11 +77,11 @@
                 
         </tbody>
             <?php                    
-                foreach ($totalPr as $key => $value) {                 
+                foreach ($storeCapital as $key => $value) {                 
             ?>
                 <tr class="tbl_footer table-danger ">
                     <td colspan="2"> Total Value - </td>
-                    <td colspan="3"> <b><?php echo $value['totalPrice'] . " TK"?></b> </td>
+                    <td colspan="3"> <b> <?php echo $value['sumStoreValue'] - $value['sumSellValue'] - $value['sumDamValue']. " TK"?></b> </td>
                 </tr>
             <?php  } ?>
     </table>

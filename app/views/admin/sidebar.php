@@ -60,10 +60,21 @@
                 </div>
                 <div class="text-center mb-4 mt-3">                    
                     <h4> 
-                        <b> <?php $user = $_SESSION['userData']; echo $user['name']; ?> </b> <br>
+                        <b> 
+                            <?php 
+                                if (!isset($_SESSION['userName'])) { ?>
+                                        <?php $user = $_SESSION['userData']; echo $user['name']; ?> 
+                                    <?php                         
+                                    
+                                }else{ ?>
+                                    <?php echo $_SESSION['userName']; ?>
+                                    <?php
+                                }
+                            ?>                    
+                        </b> <br>
                     </h4>
                     <h6>
-                        <?php echo $user['role_name']; ?> 
+                        <i> <?php $user = $_SESSION['userData']; echo $user['role_name']; ?> </i> 
                     </h6>                    
                 </div>
 
@@ -71,7 +82,7 @@
                     <li class="app-sidebar__heading"> Dashboard </li>
                     <li>
                         <a href="<?php echo BASE_URL;?>/Dashboard/home" class="<?php if ($crtlName=="Dashboard") {echo "mm-active"; } else  {echo "no-active";}?>">
-                            <i class="metismenu-icon pe-7s-graph1"></i>                            
+                            <i class="metismenu-icon fas fa-chart-bar"></i>                            
                             Store Analysis
                         </a>
                     </li>
@@ -92,7 +103,7 @@
                             </li>
                             <li>
                                 <a href="<?php echo BASE_URL;?>/Area/view" class="<?php if ($crtlName=="Area") {echo "mm-active"; } else  {echo "no-active";}?>">
-                                    <i class="fa fa-map-signs"> Area of Outlet</i>
+                                    <i class="fa fa-map-signs"> Market </i>
                                 </a>
                             </li>
                             <li>
@@ -105,34 +116,34 @@
 
                     <li>
                         <a href="<?php echo BASE_URL;?>/Store/home" class="<?php if ($crtlName=="Store") {echo "mm-active"; } else  {echo "no-active";}?>">
-                            <i class="metismenu-icon fas fa-shopping-cart"></i>
-                            Product in Store 
+                            <i class="metismenu-icon fas fa-store"></i>
+                            Store 
                         </a>
                     </li>
 
                     <li>
                         <a href="<?php echo BASE_URL;?>/Sales/home" class="<?php if ($crtlName=="Sales") {echo "mm-active"; } else  {echo "no-active";}?>">
                             <i class="metismenu-icon pe-7s-note"></i>
-                            Sales Report
+                            Sell
                         </a>
                     </li>
 
                     <li>
                         <a href="<?php echo BASE_URL;?>/Damage/home" class="<?php if ($crtlName=="Damage") {echo "mm-active"; } else  {echo "no-active";}?>">
                             <i class="metismenu-icon fa fa-bug"></i>
-                            Damage Product
+                            Return/Damage
                         </a>
                     </li>
                     
                     <li>
                         <a href="<?php echo BASE_URL;?>/Account/home" class="<?php if ($crtlName=="Account") {echo "mm-active"; } else  {echo "no-active";}?>">
-                            <i class="metismenu-icon fas fa-file-invoice"></i>
-                            Monthly Report
+                            <i class="metismenu-icon fas fa-chart-line"></i>
+                            Report
                         </a>
                     </li>
                     <li>
                         <a href="<?php echo BASE_URL;?>/Index/users" class="<?php if ($methodName =="users" || $methodName =="edit") {echo "mm-active"; } else  {echo "no-active";}?>">
-                            <i class="metismenu-icon fas fa-users"></i>
+                            <i class="metismenu-icon fas fa-user-circle"></i>
                             Users
                         </a>
                     </li>

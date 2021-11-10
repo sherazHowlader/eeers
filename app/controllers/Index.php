@@ -144,6 +144,7 @@
             $user = $_SESSION['userData'];
             $company_name = $user['company_name'];
         
+            $_SESSION['userName'] = $name;
 
             $modelOne = $this->load->model("usersModel");            
             $rcvData['userInfo'] = $modelOne->updateUser($this->usersTable,$name,$email,$pass,$company_name,$oldName);
