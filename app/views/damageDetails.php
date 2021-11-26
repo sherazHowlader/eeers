@@ -26,37 +26,23 @@
         </thead>
         <tbody>
             <?php            
-            foreach ($prDetails as $key => $value) { ?>
+            foreach ($prDetails as $key => $value) { 
+                    if (!$value['dm_quantity'] == 0) { ?>
                 <tr>                
                     <td> <?php echo $value['pr_name']; ?> </td>
                     <td> <?php echo $value['dm_quantity']; ?> </td>
                     <td> <?php echo $value['dm_price']; ?> </td>                
                     <td> <?php echo $value['deposit_date']; ?> </td>
                     <td>
-                        <?php 
-                            if ($value['dm_quantity'] == 0) { ?>
-                                <a class="falseMsg"> 
-                                    <i class="btn btn-info fa fa-edit m-1"></i>
-                                </a>
-                                <?php }else{ ?>
-                                    <a href="<?php echo BASE_URL; ?>/Damage/update/<?php echo $value['id']; ?>"> 
-                                        <i class="btn btn-info fa fa-edit m-1"></i> 
-                                    </a>
-                        <?php  } ?>
-
-                        <?php 
-                            if ($value['dm_quantity'] == 0) { ?>
-                                <a class="falseMsg"> 
-                                    <i class="btn btn-danger fa fa-trash-alt m-1"></i>
-                                </a>
-                                <?php }else{ ?>
-                                    <a class="delete" href="<?php echo BASE_URL; ?>/Damage/remove/<?php echo $value['id']; ?>"> 
-                                        <i class="btn btn-danger fa fa-trash m-1"> </i>
-                                    </a>
-                        <?php  } ?>
+                        <a href="<?php echo BASE_URL; ?>/Damage/update/<?php echo $value['id']; ?>"> 
+                           <i class="btn btn-info fa fa-edit m-1"></i> 
+                        </a>
+                        <a class="delete" href="<?php echo BASE_URL; ?>/Damage/remove/<?php echo $value['id']; ?>"> 
+                           <i class="btn btn-danger fa fa-trash m-1"> </i>
+                        </a>    
                     </td>
                 </tr>
-            <?php  } ?>
+            <?php } } ?>
         </tbody>
     </table>
 </center>

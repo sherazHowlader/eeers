@@ -33,7 +33,7 @@
             </div>
 
             <div class="col-md-6 col-6">                
-                    <input class="form-control form-control-sm" type="text" name="phn_two" autocomplete="off" value="<?php echo $value['phn_two']; ?>" required>                
+                    <input class="form-control form-control-sm" type="text" name="phn_two" autocomplete="off" value="<?php echo $value['phn_two']; ?>" >                
             </div>
             
         </div>   
@@ -99,7 +99,7 @@
             </div>
 
             <div class="col-md-6 col-6">                
-                    <input class="form-control form-control-sm" type="text" name="phn_two" autocomplete="off" placeholder=" Mobile Number " required>                
+                    <input class="form-control form-control-sm" type="text" name="phn_two" autocomplete="off" placeholder=" Mobile Number ">                
             </div>
             
         </div>   

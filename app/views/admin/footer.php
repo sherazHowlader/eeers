@@ -1,25 +1,27 @@
 </div>
+</div>
+</div>
 
 
 <div class="app-wrapper-footer text-center">
-    <div class="app-footer">
-        <div class="app-footer__inner">
-            <div class="app-footer-left">
-              <?php 
-                $user = $_SESSION['userData'];
-                if ($user['role_id'] == 3) {
-                  echo "<strong>".$user['phn']."</strong>";
-                }else{
-                  echo "<strong>"."&copy; 2021 Coded Info All Rights Reserved"."</strong>";
-                }
-              ?>
-            </div>
-            <div class="app-footer-right">
-                <strong> Developed by </strong> &nbsp;
-                <a target="_blank" href="http://sheraz.codedinfo.com/"> <b> Coded Info </b> </a>
-            </div>
-        </div>
+  <div class="app-footer">
+    <div class="app-footer__inner">
+      <div class="app-footer-left">
+        <?php
+        $user = $_SESSION['userData'];
+        if ($user['role_id'] == 3) {
+          echo "<strong>" . $user['phn'] . "</strong>";
+        } else {
+          echo "<strong>" . "&copy; 2021 Coded Info All Rights Reserved" . "</strong>";
+        }
+        ?>
+      </div>
+      <div class="app-footer-right">
+        <strong> Developed by </strong> &nbsp;
+        <a target="_blank" href="http://sheraz.codedinfo.com/"> <b> Coded Info </b> </a>
+      </div>
     </div>
+  </div>
 </div>
 </div>
 </div>
@@ -44,98 +46,100 @@
 
 
 <script>
-// Example starter JavaScript for disabling form submissions if there are invalid fields
-(function () {
-  'use strict'
+  // Example starter JavaScript for disabling form submissions if there are invalid fields
+  (function() {
+    'use strict'
 
-  // Fetch all the forms we want to apply custom Bootstrap validation styles to
-  var forms = document.querySelectorAll('.needs-validation')
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.querySelectorAll('.needs-validation')
 
-  // Loop over them and prevent submission
-  Array.prototype.slice.call(forms)
-    .forEach(function (form) {
-      form.addEventListener('submit', function (event) {
-        if (!form.checkValidity()) {
-          event.preventDefault()
-          event.stopPropagation()
-        }
+    // Loop over them and prevent submission
+    Array.prototype.slice.call(forms)
+      .forEach(function(form) {
+        form.addEventListener('submit', function(event) {
+          if (!form.checkValidity()) {
+            event.preventDefault()
+            event.stopPropagation()
+          }
 
-        form.classList.add('was-validated')
-      }, false)
-    })
-})()
+          form.classList.add('was-validated')
+        }, false)
+      })
+  })()
 </script>
 
 <script>
-    $('#showtoast').on('click',function(){
+  $('#showtoast').on('click', function() {
     toastr.options = {
-    "closeButton": true,
-    "debug": false,
-    "newestOnTop": false,
-    "progressBar": true,
-    "positionClass": "toast-top-center",
-    "preventDuplicates": false,
-    "onclick": null,
-    "showDuration": "300",
-    "hideDuration": "1000",
-    "timeOut": "5000",
-    "extendedTimeOut": "1000",
-    "showEasing": "swing",
-    "hideEasing": "linear",
-    "showMethod": "fadeIn",
-    "hideMethod": "fadeOut"
+      "closeButton": true,
+      "debug": false,
+      "newestOnTop": false,
+      "progressBar": true,
+      "positionClass": "toast-top-center",
+      "preventDuplicates": false,
+      "onclick": null,
+      "showDuration": "300",
+      "hideDuration": "1000",
+      "timeOut": "5000",
+      "extendedTimeOut": "1000",
+      "showEasing": "swing",
+      "hideEasing": "linear",
+      "showMethod": "fadeIn",
+      "hideMethod": "fadeOut"
     }
     toastr["error"]("Please input your data", "Error!")
-    })
+  })
 </script>
 
 <script>
-    $('.delete').on('click',function(e){
+  $('.delete').on('click', function(e) {
     e.preventDefault();
     const href = $(this).attr('href')
 
     Swal.fire({
-    title: 'Are you sure?',
-    text: "You won't be able to revert this!",
-    icon: 'warning',
-    showCancelButton: true,
-    confirmButtonColor: '#3085d6',
-    cancelButtonColor: '#d33',
-    confirmButtonText: 'Yes, delete it!'
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
-    if (result.value) {
-    window.location.href = href;
-    }
+      if (result.value) {
+        window.location.href = href;
+      }
     })
-    })
+  })
 </script>
 
 <script>
-    $('.falseMsg').on('click',function(e){
+  $('.falseMsg').on('click', function(e) {
     e.preventDefault();
     const href = $(this).attr('href')
 
-      Swal.fire("Sorry Sir, <br> We Can't Perform This Action 😢")
-    })
-</script>
-
-<script>
-    $(document).ready(function() {
-      $('.select2').select2();
-      });
+    Swal.fire("Sorry Sir, <br> We Can't Perform This Action 😢")
+  })
 </script>
 
 <script>
   $(document).ready(function() {
-    $('#myTable').DataTable( {
-        responsive: true,
-        dom: 'Bfrtip',
-        buttons: [
-            'copy', 'csv', 'excel', 'pdf', 'print'
-        ]
-    } );
-  } );  
+    $('.select2').select2();
+  });
+</script>
+
+<script>
+  $(document).ready(function() {
+    $('#myTable').DataTable({
+      responsive: true,
+      dom: 'Bfrtip',
+      buttons: [
+        'copy', 'csv', 'excel', 'pdf', 'print'
+      ],
+      order: [2, 'desc']
+    });
+  });
 </script>
 
 </body>
+
 </html>

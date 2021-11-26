@@ -52,21 +52,19 @@
             <tr>
                 <th> S/L </th>
                 <th> Product </th>
-                <th> Store </th>
-                <th> Value </th>
+                <th> Store </th>                
                 <th> Details </th>
             </tr>
         </thead>
         <tbody>
                 <?php
                     $serial = "1";
-                    foreach ($prList as $key => $value) {                 
+                    foreach ($prList as $key => $value) { 
                 ?>
                     <tr>                        
                         <td> <?php echo $serial++ ?> </td>
                         <td> <?php echo $value['pr_name']; ?> </td>
-                        <td> <?php echo $value['sumStore'] - $value['sumSell'] - $value['sumDam']; ?> </td>               
-                        <td> <?php echo $value['sumStoreValue'] - $value['sumSellValue'] - $value['sumDamValue']; ?> </td>                
+                        <td> <?php echo $value['sumStore'] - $value['sumSell'] - $value['sumDam']; ?> </td>                      
                         <td> 
                             <a href="<?php echo BASE_URL; ?>/Store/details/<?php echo $value['pr_name']; ?>"> 
                                 <i class="btn btn-info fa fa-info-circle"> </i>

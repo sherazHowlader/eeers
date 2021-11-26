@@ -34,32 +34,36 @@
     <br><br>
 
 
-    <table class="table table-striped text-center">
-        <tr>            
-            <th> Product Name </th>
-            <th> Quantity </th>
-            <th> Rate </th>
-            <th> Value </th>
-            <th> Date </th>
-            <th> Action </th>
-        </tr>
-        <?php        
-        foreach ($sellInfo as $key => $value) { ?>
-            <tr>
-                <td> <?php echo $value['pr_name']; ?> </td>
-                <td> <?php echo $value['sl_quantity']; ?> </td> 
-                <td> <?php echo $value['sl_price']; ?> </td> 
-                <td> <?php echo $value['sl_value']; ?> </td> 
-                <td> <?php echo $value['deposit_date']; ?> </td> 
-                <td>
-                    <a href="<?php echo BASE_URL; ?>/Sales/update/<?php echo $value['id']; ?>"> 
-                        <i class="btn btn-info fa fa-edit m-1"></i>
-                    </a>
-                    <a class="delete" href="<?php echo BASE_URL; ?>/Sales/remove/<?php echo $value['id']; ?>"> 
-                        <i class="btn btn-danger fa fa-trash m-1"> </i>
-                    </a>
-                </td> 
+    <table class="table table-striped text-center" id="myTable">
+        <thead>
+            <tr>            
+                <th> Product Name </th>
+                <th> Quantity </th>
+                <th> Rate </th>
+                <th> Value </th>
+                <th> Date </th>
+                <th> Action </th>
             </tr>
-        <?php  } ?>
+        </thead>
+        <tbody>
+            <?php        
+            foreach ($sellInfo as $key => $value) { ?>
+                <tr>
+                    <td> <?php echo $value['pr_name']; ?> </td>
+                    <td> <?php echo $value['sl_quantity']; ?> </td> 
+                    <td> <?php echo $value['sl_price']; ?> </td> 
+                    <td> <?php echo $value['sl_value']; ?> </td> 
+                    <td> <?php echo $value['deposit_date']; ?> </td> 
+                    <td>
+                        <a href="<?php echo BASE_URL; ?>/Sales/update/<?php echo $value['id']; ?>"> 
+                            <i class="btn btn-info fa fa-edit m-1"></i>
+                        </a>
+                        <a class="delete" href="<?php echo BASE_URL; ?>/Sales/remove/<?php echo $value['id']; ?>"> 
+                            <i class="btn btn-danger fa fa-trash m-1"> </i>
+                        </a>
+                    </td> 
+                </tr>
+            <?php  } ?>
+        </tbody>
     </table>
 </center>

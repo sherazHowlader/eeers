@@ -20,8 +20,7 @@
             $company_name = $user['company_name'];
 
             $this->load->view('admin/header');
-            $this->load->view('admin/sidebar');           
-            $this->load->view('admin/content_title');           
+            $this->load->view('admin/sidebar');            
             
             $modelOne     = $this->load->model("damageModel");
             
@@ -65,8 +64,7 @@
             $company_name = $user['company_name'];
 
             $this->load->view('admin/header');
-            $this->load->view('admin/sidebar');           
-            $this->load->view('admin/content_title');
+            $this->load->view('admin/sidebar');            
 
             $modelOne = $this->load->model("damageModel");
             $rcvData['damageProduct'] = $modelOne->readById($this->tableOne,$company_name,$id);
@@ -113,8 +111,7 @@
             $company_name = $user['company_name'];
 
             $this->load->view('admin/header');
-            $this->load->view('admin/sidebar');           
-            $this->load->view('admin/content_title');           
+            $this->load->view('admin/sidebar');            
             
             $modelOne = $this->load->model("damageModel");
             $rcvData['prDetails'] = $modelOne->readById($this->tableOne,$company_name,$name);

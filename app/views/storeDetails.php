@@ -20,44 +20,31 @@
                 <th> Product Name </th>
                 <th> Quantity </th>
                 <th> Rate </th>
+                <th> Value </th>
                 <th> Date </th>         
                 <th> Action </th>
             </tr>
         </thead>
         <tbody>
             <?php           
-            foreach ($prDetails as $key => $value) { ?>
+            foreach ($prDetails as $key => $value) { 
+                if (!$value['st_quantity'] == 0) { ?>
                 <tr>                   
                     <td> <?php echo $value['pr_name']; ?> </td>
                     <td> <?php echo $value['st_quantity']; ?> </td>
                     <td> <?php echo $value['st_price']; ?> </td>                
+                    <td> <?php echo $value['st_value']; ?> </td>                
                     <td> <?php echo $value['deposit_date']; ?> </td> 
                     <td>                        
-                        <?php 
-                            if ($value['st_quantity'] == 0) { ?>
-                                <a class="falseMsg"> 
-                                    <i class="btn btn-info fa fa-edit m-1"></i>
-                                </a>
-                                <?php }else{ ?>
-                                    <a href="<?php echo BASE_URL; ?>/Store/update/<?php echo $value['id']; ?>"> 
-                                        <i class="btn btn-info fa fa-edit m-1"></i> 
-                                    </a>
-                        <?php  } ?>
-
-                        <?php 
-                            if ($value['st_quantity'] == 0) { ?>
-                                <a class="falseMsg"> 
-                                    <i class="btn btn-danger fa fa-trash-alt m-1"></i>
-                                </a>
-                                <?php }else{ ?>
-                                    <a class="delete" href="<?php echo BASE_URL; ?>/Store/remove/<?php echo $value['id']; ?>"> 
-                                        <i class="btn btn-danger fa fa-trash m-1"> </i>
-                                    </a>
-                        <?php  } ?>
-
+                         <a href="<?php echo BASE_URL; ?>/Store/update/<?php echo $value['id']; ?>"> 
+                           <i class="btn btn-info fa fa-edit m-1"></i> 
+                         </a>
+                        <a class="delete" href="<?php echo BASE_URL; ?>/Store/remove/<?php echo $value['id']; ?>"> 
+                            <i class="btn btn-danger fa fa-trash m-1"> </i>
+                        </a>
                     </td>
                 </tr>
-            <?php  } ?>
+            <?php } } ?>
         </tbody>
     </table>
 </center>

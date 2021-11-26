@@ -33,16 +33,6 @@
             return $this->select($sql);
         }
 
-        // public function upData($table, $company_name,$product_name,$price,$quantity,$id){
-
-        //     $sql = "UPDATE $table 
-        //             SET product_name='$product_name',price='$price',sell_quantity='$quantity'
-        //             WHERE id='$id' AND company_name='$company_name' ";                
-                
-        //     return $this->update($sql);
-        // }
-
-
         public function upData($table,$Data,$id,$company_name){
            $updateKeys = NULL ;
 

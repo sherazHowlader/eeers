@@ -20,7 +20,6 @@
 
             $this->load->view('admin/header');
             $this->load->view('admin/sidebar');           
-            $this->load->view('admin/content_title');
 
             $modelOne = $this->load->model("areaModel");
             $modelTwo = $this->load->model("outletModel");
@@ -64,8 +63,7 @@
 
             $this->load->view('admin/header');
             $this->load->view('admin/sidebar');           
-            $this->load->view('admin/content_title');
-
+            
             $modelOne = $this->load->model("outletModel");
             $rcvData['outletUp'] = $modelOne->readById($this->tableOne,$company_name,$id);
             $rcvData['outletList'] = $modelOne->read($this->tableOne, $company_name);

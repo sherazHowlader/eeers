@@ -21,8 +21,7 @@
             $company_name = $user['company_name'];
 
             $this->load->view('admin/header');
-            $this->load->view('admin/sidebar');           
-            $this->load->view('admin/content_title');           
+            $this->load->view('admin/sidebar');            
             
             $modelOne   = $this->load->model("outletModel");            
             $modelTwo   = $this->load->model("storeModel");
@@ -70,8 +69,7 @@
             $company_name = $user['company_name'];
 
             $this->load->view('admin/header');
-            $this->load->view('admin/sidebar');           
-            $this->load->view('admin/content_title');
+            $this->load->view('admin/sidebar');
 
             $modelOne = $this->load->model("saleModel");
             $rcvData['voucherInfo'] = $modelOne->readById($this->tableOne,$company_name,$id);
@@ -79,20 +77,6 @@
             $this->load->view('storeDamageEdit',$rcvData);
             $this->load->view('admin/footer');
         }
-
-        // public function upData($id=null){
-        //     session_start();
-        //     $user = $_SESSION['userData'];
-        //     $company_name = $user['company_name'];
-
-        //     $product_name   = $_REQUEST['product_name'];
-        //     $price          = $_REQUEST['price'];
-        //     $quantity       = $_REQUEST['quantity'];  
-
-        //     $modelOne   = $this->load->model("saleModel");
-        //     $rcvData    = $modelOne->upData($this->tableOne,$company_name,$product_name,$price,$quantity,$id);
-        //     // header("Location: ".BASE_URL."/Sales/home");
-        // }
 
         public function upData($id=null){
             session_start();
@@ -131,8 +115,7 @@
 
             $this->load->view('admin/header');
             $this->load->view('admin/sidebar');
-            $this->load->view('admin/content_title');
-
+           
             $modelOne = $this->load->model("outletModel");           
 
             $rcvData['outlet_info']  = $modelOne->readById($this->tableTwo,$company_name,$name);
